@@ -27,8 +27,8 @@ function ContactForm() {
       }
     }
     if (!errorMessage) {
-        setFormState({ ...formState, [e.target.name]: e.target.value });
-      }
+      setFormState({ ...formState, [e.target.name]: e.target.value });
+    }
   }
 
   function handleSubmit(e) {
@@ -39,6 +39,11 @@ function ContactForm() {
   return (
     <section>
       <h1>Contact me</h1>
+      {errorMessage && (
+        <div>
+          <p className="error-text">{errorMessage}</p>
+        </div>
+      )}
       <form id="contact-form" onSubmit={handleSubmit}>
         <div>
           <label htmlFor="name">Name:</label>
